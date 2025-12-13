@@ -392,3 +392,34 @@ input, select, textarea {
 #listado-animales .boton-eliminar:hover {
     background: #e54c4c;
 }
+#listado-animales .boton-actualizar {
+    background: #3c93d5;
+    color: #fff;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    font-size: 0.7em;
+    font-weight: 400;
+    cursor: pointer; 
+}
+#listado-animales .boton-actualizar:hover {
+    background: #4ca3e5;
+}
+
+
+#registro input[type="text"], 
+#registro input[type="number"], 
+#registro select {
+    background: #fff; /* Fondo blanco */
+    color: #333; /* Texto oscuro para el campo principal */
+}
+
+
+#registro label {
+    color: #fff; 
+}
+
+
+#registro select option {
+    background: #fff; 
+    color: #333;
+}
