@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zoológico Tilín | Sistema de Gestión Integral</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    
+    <link rel="stylesheet" href="diseño.css" />
+</head>
+
+<body>
+
+    <section id="header" class="dark">
+        <header>
+            <h1>🦒 Zoológico Tilín | Gestión de Fauna</h1>
+            <p>Plataforma RESTful para el Inventario y Mantenimiento de Especies</p>
+        </header>
+        
+        <nav id="nav-principal">
+            <ul>
+                <li><a href="#about" class="button scrolly">Sobre Nosotros</a></li>
+                <li><a href="#registro" class="button scrolly">📝 Registrar Animal</a></li>
+                <li><a href="#listado-animales" class="button scrolly">🦁 Inventario de Fauna</a></li>
+                <li><a href="#dashboard" class="button scrolly">📊 Métricas</a></li>
+            </ul>
+        </nav>
+        
+        <footer>
+            <a href="#about" class="button scrolly">Comenzar Gestión</a>
+        </footer>
+    </section>
+
+    <section id="about" class="main">
+        <header>
+            <div class="container">
+                <h2>Sobre Nosotros</h2>
+                <p>El sistema utiliza la arquitectura REST (Firebase) para gestionar inventario, tareas y métricas poblacionales en tiempo real.</p>
+            </div>
+        </header>
+        
+        <div class="content dark style1 featured">
+            <div class="container">
+                <div class="row">
+                    <div class="col-4 col-12-narrow">
+                        <section>
+                            <header><h3>Integración API REST</h3></header>
+                            <p>Toda la gestión de datos se realiza mediante peticiones **`fetch()`** asíncronas a la base de datos de Firebase Realtime Database.</p>
+                        </section>
+                    </div>
+                    
+                    <div class="col-4 col-12-narrow">
+                        <section>
+                            <header><h3>Diseño Responsivo</h3></header>
+                            <p>Uso de Flexbox y Media Queries en **`diseño.css`** para garantizar la correcta visualización en dispositivos móviles y de escritorio.</p>
+                        </section>
+                    </div>
+                    
+                    <div class="col-4 col-12-narrow">
+                        <section>
+                            <header><h3>Estructura Semántica</h3></header>
+                            <p>Implementación correcta de etiquetas HTML5 estructurales como **`<header>`**, **`<nav>`**, **`<main>`**, **`<section>`**, y **`<form>`**.</p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="registro" class="main">
+        <header>
+            <div class="container">
+                <h2>📝 Registrar Animal (CREATE)</h2>
+                <p>Complete los datos para enviar un nuevo registro (POST) a la colección `/animales`.</p>
+            </div>
+        </header>
+        
+        <div class="content dark style2"> 
+            <div class="container medium">
+                <form id="formulario-animales" method="post" action="#">
+                    <!-- Es el elemento clave. Contiene todos los campos que se enviarán a la base de datos.-->
+                    <div class="row gtr-50">
+                        <div class="col-6 col-12-narrow">
+                            <label for="nombre">Nombre del Animal:</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Ej: Leo" required />
+                        </div>
+                        <div class="col-6 col-12-narrow">
+                            <label for="especie">Especie:</label>
+                            <input type="text" id="especie" name="especie" placeholder="Ej: León Africano" required />
+                        </div>
+                        
+                        <div class="col-6 col-12-narrow">
+                            <label for="recinto">Recinto al que Pertenece:</label>
+                            <div class="select" tabindex="-1">
+                                <select id="recinto" name="id_recinto" required>
+                                    <option value="">Seleccione un Recinto</option>
+                                    <option value="Zona_Sabana">Zona Sabana</option>
+                                    <option value="Aviario">Aviario Tilín</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12">
+                            <label for="salud">Estado de Salud (1 al 10):</label>
+                            <input type="number" id="salud" name="estado_salud" min="1" max="10" required placeholder="1 (Mal) a 10 (Excelente)" />
+                        </div>
+                        
+                        <div class="col-12">
+                            <ul class="actions special">
+                                <li><input type="submit" class="button" id="btn-registrar" value="Registrar Animal (POST)" /></li>
+                                <li><input type="reset" class="button alt" value="Limpiar Formulario" /></li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="listado-animales" class="main">
+         <header>
+            <div class="container">
+                <h2>🦁 Inventario de Fauna (READ)</h2>
+                <p>Lista de animales. Use esta sección para buscar, actualizar (PATCH) o eliminar (DELETE) registros.</p>
+                <!-- Esta es la sección de la operación READ (GET), UPDATE (PATCH) y DELETE. Aquí es donde se visualizarán todos los animales registrados.-->
+                 <!-- la tabla se hace con app.js-->
+            </div>
+        </header>
+        
+        <div class="content style3 dark"> 
+            <div class="container">
+                <div id="lista-animales" class="row">
+                    <p class="col-12">Cargando datos del inventario... (Miembro 3)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="dashboard" class="main">
+        <header>
+            <div class="container">
+                <h2>📊 Dashboard de Métricas</h2>
+                <p>Análisis en tiempo real de la base de datos (conteo de animales, estado de salud).</p>
+                <!-- Requisito de Lectura, Implica procesar esos datos. El Dashboard demuestra que tu código JavaScript no solo sabe leer el inventario completo, sino que también sabe analizarlo y resumirlo.-->
+            <!-- Total de Animales (#total-animales)Contar el número total de objetos recibidos de Firebase.Iterar sobre los datos y calcular un total.Animales Críticos (#animales-criticos)Filtrar los animales donde estado_salud sea $\le 3$.Aplicar lógica condicional (if, filter) sobre el conjunto de datos. -->
+            </div>
+
+        </header>
+        
+        <div class="content style4 featured">
+            <div class="container medium">
+                <div id="metricas-container" class="row">
+                    <div class="col-6 col-12-narrow metrica-card">
+                        <article>
+                            <h3>Total de Animales Registrados:</h3>
+                            <p id="total-animales">--</p>
+                        </article>
+                    </div>
+                    
+                     <div class="col-6 col-12-narrow metrica-card">
+                        <article>
+                            <h3>Animales en Estado Crítico (Salud 1-3):</h3>
+                            <p id="animales-criticos">--</p>
+                        </article>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="footer">
+        <div class="copyright">
+            <ul class="menu">
+                <li>&copy; 2025 Zoológico Tilín.</li><li>Adaptación: HTML5 / Bella</li>
+            </ul>
+        </div>
+    </section>
+
+    <script src="app.js"></script> 
+</body>
+</html>
