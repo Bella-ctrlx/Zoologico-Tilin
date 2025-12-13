@@ -99,8 +99,8 @@ function renderizarLista(animales) {
                 <td>${animal.id_recinto}</td>
                 <td class="${claseSalud}">${animal.estado_salud}</td>
                 <td>
-                    <button class="btn-actualizar" data-id="${animal.id}">Actualizar (PATCH)</button>
-                    <button class="btn-eliminar" data-id="${animal.id}">Eliminar (DELETE)</button>
+                    <button class="boton-actualizar" data-id="${animal.id}">Actualizar (PATCH)</button>
+                    <button class="boton-eliminar" data-id="${animal.id}">Eliminar (DELETE)</button>
                 </td>
             </tr>
         `;
@@ -175,7 +175,7 @@ formulario.addEventListener('submit', async (e) => {
 
 function agregarListenersCRUD() {
     // Escucha eventos en el contenedor de la lista para delegación
-    listaAnimalesContenedor.querySelectorAll('.btn-eliminar').forEach(button => {
+    listaAnimalesContenedor.querySelectorAll('.boton-eliminar').forEach(button => {
         button.addEventListener('click', (e) => {
             const id = e.target.dataset.id;
             if (confirm(`¿Está seguro de eliminar el animal con ID ${id.substring(0, 8)}...?`)) {
@@ -184,7 +184,7 @@ function agregarListenersCRUD() {
         });
     });
     
-    listaAnimalesContenedor.querySelectorAll('.btn-actualizar').forEach(button => {
+    listaAnimalesContenedor.querySelectorAll('.boton-actualizar').forEach(button => {
         button.addEventListener('click', (e) => {
             const id = e.target.dataset.id;
   
