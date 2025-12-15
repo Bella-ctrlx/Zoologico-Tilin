@@ -2,12 +2,10 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,400italic");
 
 
-
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
     font: inherit;
     vertical-align: baseline;
 }
@@ -32,11 +30,11 @@ input, select, textarea {
     appearance: none;
 }
 
-/* Tipografía y Estilos Basicos */
+/* Tipografía y Estilos Básicos */
 
     html {
         box-sizing: border-box;
-        scroll-behavior: smooth;
+        scroll-behavior: smooth; 
     }
 
     *, *:before, *:after {
@@ -44,12 +42,13 @@ input, select, textarea {
     }
 
     body {
-        background: #ffffff;
+        background: url(img/FondoHojas.jpg) no-repeat center center fixed; 
+        background-size: cover;
         font-family: 'Roboto', sans-serif;
         font-weight: 300; 
         font-size: 17pt;
         line-height: 1.75em;
-        color: #888;
+        color: #ffffff;
         -webkit-text-stroke: 0.1px;
     }
 
@@ -66,7 +65,8 @@ input, select, textarea {
         margin: 0 0 1em 0;
         font-weight: 300; 
         line-height: 1.5em;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        font-family: "Bebas Neue", sans-serif;
     }
 
         .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
@@ -74,14 +74,13 @@ input, select, textarea {
         }
     
     a {
-        /* Mantenemos la transición de color/borde para un hover suave */
         -moz-transition: border-bottom-color 0.25s ease-in-out;
         -webkit-transition: border-bottom-color 0.25s ease-in-out;
         -ms-transition: border-bottom-color 0.25s ease-in-out;
         transition: border-bottom-color 0.25s ease-in-out;
         color: inherit;
         text-decoration: none;
-        border-bottom: dotted 1px rgba(0, 0, 0, 0.25);
+        border-bottom: dotted 1px rgba(255, 255, 255, 0.25);
     }
 
         .dark a {
@@ -102,6 +101,18 @@ input, select, textarea {
         margin: 0 auto;
         max-width: 100%;
         width: 1360px;
+        
+        background: rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        
+        /* Bordes y Sombra */
+        border-top: solid 1px rgba(255, 255, 255, 0.4);
+        border-left: solid 1px rgba(255, 255, 255, 0.4);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); 
+        box-sizing: border-box;
+        padding: 0.5px;
     }
 
         .container.medium {
@@ -123,7 +134,7 @@ input, select, textarea {
         }
 
 
-/* Sistema de Rejilla (Row y Col) */
+/* row y col*/
 
     .row {
         display: flex;
@@ -151,10 +162,10 @@ input, select, textarea {
 /* Formularios */
 
     input[type="text"], input[type="email"], input[type="password"], input[type="number"], select, textarea {
-        background: rgba(0, 0, 0, 0.05);
+        background: rgba(0, 0, 0, 0.3); 
         border-radius: 4px;
         border: none;
-        color: inherit;
+        color: #fff; 
         display: block;
         outline: 0;
         padding: 0 1em;
@@ -172,12 +183,12 @@ input, select, textarea {
         margin: 0 0 0.5em 0;
     }
 
-    /* Estilos específicos para el formulario de registro (para que resalte sobre el fondo) */
+    /* Estilos específicos para el formulario de registro*/
     #registro input[type="text"], 
     #registro input[type="number"], 
     #registro select {
-        background: #fff; /* Fondo blanco */
-        color: #333; /* Texto oscuro para el campo principal */
+        background: #fff; 
+        color: #333; 
     }
 
     #registro label {
@@ -205,7 +216,6 @@ input, select, textarea {
     }
     
     .button {
-        /* Añadimos transición para que el hover del botón sea suave */
         transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
         background: #3c93d5;
         border-radius: 4px;
@@ -249,7 +259,7 @@ input, select, textarea {
     }
     
         ul.actions.special {
-            justify-content: center; /* Centrar acciones especiales como los botones de navegación */
+            justify-content: center;
             margin-top: 2em;
         }
 
@@ -280,16 +290,25 @@ input, select, textarea {
                 padding: 4em 0;
             }
 
-                section.main > .content.style1 {
-                    background: #004301; 
-                }
-
-                section.main > .content.style2 {
-                    background: #004d15; 
-                }
-
+               
+                section.main > .content.style1, 
+                section.main > .content.style2,
                 section.main > .content.style3 {
-                    background: #007c1b; 
+                    background: rgba(255, 255, 255, 0.05); 
+                    backdrop-filter: blur(10px);
+                    -webkit-backdrop-filter: blur(10px);
+                    border: 1px solid rgba(255, 255, 255, 0.1); 
+                }
+                #about .content .col-4 section {
+                    background: rgba(255, 255, 255, 0.1); 
+                    backdrop-filter: blur(10px); 
+                    -webkit-backdrop-filter: blur(10px); 
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                    border-radius: 10px;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+                    padding: 1.5em; 
+                    color: #fff;
+                    height: 100%; 
                 }
 
 /* Header (Principal) */
@@ -297,13 +316,12 @@ input, select, textarea {
     #header {
         position: relative;
         padding: 6em 0;
-        background: #004d15 url("img/Zoo.jpeg") no-repeat center center; 
+        background: url("img/Zoo.jpeg") no-repeat center center; 
         background-size: cover;
         color: #fff;
         text-align: center;
     }
     
-
         #header:before {
             content: '';
             display: block;
@@ -316,7 +334,6 @@ input, select, textarea {
             z-index: 0;
         }
         
-
         #header > * {
             position: relative;
             z-index: 1;
@@ -327,8 +344,6 @@ input, select, textarea {
             font-weight: 100;
             line-height: 1em; 
             margin-bottom: 0.25em; 
-            
-            /* Animación de entrada: Inicia oculto y fuera de pantalla */
             opacity: 0; 
             transform: translateY(-50px); 
             animation: slideInFromTop 1s ease-out 0.5s forwards; 
@@ -355,32 +370,31 @@ input, select, textarea {
 /* Dashboard de Métricas */
 
 #dashboard .metrica-card article {
-    background-color: #f1f1f1;
+    background-color: #f1f1f124;
     padding: 1.5em;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 2em;
     
-    /* Transición para el hover */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 #dashboard .metrica-card article:hover {
-    transform: translateY(-5px); /* Efecto de elevación */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más fuerte */
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
 }
 
 #dashboard h3 {
     font-size: 1.2em;
     font-weight: 400;
-    color: #444;
+    color: #00c500;
     margin-bottom: 0.5em;
 }
 
 #dashboard p {
     font-size: 3em;
     font-weight: 100;
-    color: #000;
+    color: #ffffff;
     line-height: 1em;
     text-align: center;
 }
@@ -389,7 +403,9 @@ input, select, textarea {
     #footer {
         padding: 4em 0;
         text-align: center;
-        background: #333;
+        background: rgba(0, 0, 0, 0.3); 
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
         color: rgba(255, 255, 255, 0.5);
     }
 
@@ -398,7 +414,7 @@ input, select, textarea {
             color: rgba(255, 255, 255, 0.3);
         }
         
-/* Estilos para la tabla de animales (creada por JS) */
+/*tabla de animales*/
 #listado-animales table {
     width: 100%;
     margin-bottom: 1em;
@@ -423,13 +439,13 @@ input, select, textarea {
 
 #listado-animales .accion-col {
     text-align: center;
-    width: 25%; /* Ajustado para 2 botones */
+    width: 25%;
 }
 
-/* Estilo para resaltar la salud crítica */
+/* resaltar la salud crítica */
 #listado-animales .estado-critico {
-    background-color: #cc0000; /* Fondo rojo oscuro */
-    color: #fff; /* Texto blanco */
+    background-color: #cc0000; 
+    color: #fff; 
     font-weight: 700;
 }
 
@@ -441,14 +457,14 @@ input, select, textarea {
     font-size: 0.7em;
     font-weight: 400;
     cursor: pointer;
-    margin-left: 0.5em; /* Espacio entre botones */
+    margin-left: 0.5em; 
 }
 
 #listado-animales .boton-eliminar:hover {
-    background: #e54c4c;
+    background: #c22020;
 }
 #listado-animales .boton-actualizar {
-    background: #3c93d5;
+    background: #007836;
     color: #fff;
     padding: 0.5em 1em;
     border-radius: 4px;
@@ -457,38 +473,36 @@ input, select, textarea {
     cursor: pointer; 
 }
 #listado-animales .boton-actualizar:hover {
-    background: #4ca3e5;
+    background: #056b1b;
 }
 
 
-/* ========================================================== */
-/* 🔑 MEDIA QUERY: AJUSTES PARA DISPOSITIVOS MÓVILES (MÁX. 736px) */
-/* ========================================================== */
+
+/*AJUSTES PARA DISPOSITIVOS MÓVILES*/
+
 
 @media screen and (max-width: 736px) { 
     
-    /* 1. Resetear el tamaño de la tipografía base para móvil */
     body {
         font-size: 14pt; 
+        -ms-overflow-style: none;
+        -webkit-scrollbar: none;
     }
+    
 
-    /* 2. Reducir el padding de las secciones */
     section {
         padding: 4em 0; 
     }
 
-    /* 3. Colapsar todas las columnas al 100% */
     .row > .col-12-narrow, 
     .row > .col-6-narrow,
     .row > .col-4-narrow,
-    /* Aplicar a todas las columnas usadas */
     .row > .col-4, 
     .row > .col-6, 
     .row > .col-12 { 
         width: 100% !important; 
     }
     
-    /* 4. Reducir el espaciado (Gutter) entre filas y columnas */
     .row { 
         margin-top: -15px;
         margin-left: -15px; 
@@ -497,7 +511,6 @@ input, select, textarea {
         padding: 15px 0 0 15px; 
     }
     
-    /* 5. Ajustar el header principal */
     #header {
         padding: 4em 0; 
     }
@@ -505,7 +518,6 @@ input, select, textarea {
         font-size: 3em; 
     }
 
-    /* 6. Ajustar la navegación */
     #nav-principal ul {
         flex-direction: column; 
     }
@@ -513,27 +525,24 @@ input, select, textarea {
         padding: 0.5em 0; 
     }
 
-    /* 7. Ajustar la tabla (para evitar desbordes) */
     #listado-animales .content {
-        overflow-x: auto; /* Permite scroll horizontal */
+        overflow-x: auto; 
     }
     #listado-animales table {
-        min-width: 650px; /* Asegura que la tabla no se rompa */
-        display: block; /* Para permitir el scroll horizontal */
+        min-width: 650px; 
+        display: block; 
     }
     #listado-animales .accion-col {
-        min-width: 150px; /* Asegura que haya espacio para los dos botones */
+        min-width: 150px; 
         width: auto;
     }
     
-    /* Ajustar los botones de acción para que se apilen si es necesario */
     #listado-animales .boton-actualizar, 
     #listado-animales .boton-eliminar {
         display: block;
         margin: 0.25em auto;
     }
     
-    /* Ajustar acciones especiales (botones de navegación entre secciones) */
     ul.actions.special {
         flex-direction: column;
     }
@@ -542,9 +551,6 @@ input, select, textarea {
     }
 }
 
-/* ========================================================== */
-/* 🆕 DEFINICIÓN DE ANIMACIONES CSS (KEYFRAMES) */
-/* ========================================================== */
 
 /* 1. Animación: Deslizar el título desde arriba (Header) */
 @keyframes slideInFromTop {
@@ -558,7 +564,7 @@ input, select, textarea {
     }
 }
 
-/* 2. Animación Opcional: Pulso en el botón de registro (para llamar a la acción) */
+/* 2. Animación Pulso en el botón de registro*/
 @keyframes pulse {
     0% {
         box-shadow: 0 0 0 0 rgba(60, 147, 213, 0.4);
@@ -571,7 +577,114 @@ input, select, textarea {
     }
 }
 
-/* Aplicar la animación opcional al botón principal de registro */
+
 #registro input[type="submit"] {
     animation: pulse 2s infinite;
+}
+
+
+.carousel {
+
+    margin: 100px auto;
+
+    width: 90%;
+
+   
+
+    display: flex;
+
+    overflow-x: auto;
+
+}
+
+.carousel::-webkit-scrollbar{
+
+    display: none;
+
+}
+
+.group{
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 1em;
+
+    animation: spin 50s infinite linear;
+
+    padding-right: 1em;
+
+}
+
+.card {
+
+    flex: 0 0 5em;
+
+    height: 5em;
+
+    background: #3c93d5;
+
+    font-size: 3rem;
+
+    border-radius: .2em;
+
+    text-align: center;
+
+    align-content: center;
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+   
+
+}
+
+.group .card:nth-child(1) {
+
+    background-image: url('img/BellaLeon.png');
+
+}
+
+.group .card:nth-child(2) {
+
+    background-image: url('img/ThonyManati.png');
+
+}
+
+.group .card:nth-child(3) {
+
+    background-image: url('img/Recorrido.jpeg');
+
+}
+
+.group .card:nth-child(4) {
+
+    background-image: url('img/Capibara.jpeg');
+
+}
+
+.group .card:nth-child(5) {
+
+    background-image: url('img/MariaBella\ Guacamayo.png');
+
+}
+
+.group .card:nth-child(6) {
+
+    background-image: url('img/MisselOso.png');
+
+}
+
+@keyframes spin{
+
+    from {translate: 0;}
+
+    to {translate: -100%;}
+
 }

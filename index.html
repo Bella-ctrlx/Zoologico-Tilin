@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     
     <link rel="stylesheet" href="diseño.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -13,14 +16,14 @@
     <section id="header" class="dark">
         <header>
             <h1> Zoológico Los Tilines <br>Gestión de Fauna</h1>
-            <p>Plataforma RESTful para el Inventario y Mantenimiento de Especies de un Zoologico</p>
+            <p>Panel veterinario para el monitoreo, registro y gestión del cuidado animal</p>
         </header>
         
         <nav id="nav-principal">
             <ul>
                 <li><a href="#about" class="button scrolly">Sobre Nosotros</a></li>
                 <li><a href="#registro" class="button scrolly">Registrar Animal</a></li>
-                <li><a href="#listado-animales" class="button scrolly">Inventario de Fauna</a></li>
+                <li><a href="#listado-animales" class="button scrolly">Fauna de Zootilines</a></li>
                 <li><a href="#dashboard" class="button scrolly">Métricas</a></li>
             </ul>
         </nav>
@@ -31,10 +34,29 @@
         <header>
             <div class="container">
                 <h1>Sobre Nosotros</h1>
-                <p>El sistema utiliza la arquitectura REST (Firebase) para gestionar inventario, tareas y métricas poblacionales en tiempo real.
-                    Nosotros somos estudiantes de la UTP, adaptando este proyecto como parte de nuestro proyecto final del curso de Desarrollo de Software 5.   
+                <p>Zootilines es un centro de conservación y cuidado animal dedicado al bienestar de las especies en cautiverio. Nuestra misión principal es actuar como un santuario de rescate y un eje de educación ambiental, buscando concientizar a cada visitante sobre la urgente necesidad de proteger la vida silvestre y sus hábitats.   
                 </p>
+                
             </div>
+             <div class = "carousel">
+        <div class="group">
+            <div class="card card-1"></div>
+            <div class="card card-2"></div>
+            <div class="card card-3"></div>
+            <div class="card card-4"></div>
+            <div class="card card-5"></div>
+            <div class="card card-6"></div>
+        </div>
+        <div aria-hidden class="group">
+            <div class="card card-1"></div>
+            <div class="card card-2"></div>
+            <div class="card card-3"></div>
+            <div class="card card-4"></div>
+            <div class="card card-5"></div>
+            <div class="card card-6"></div>
+        </div>
+    </div>
+
         </header>
         
         <div class="content dark style1 featured">
@@ -42,22 +64,22 @@
                 <div class="row">
                     <div class="col-4 col-12-narrow">
                         <section>
-                            <header><h3>Integración API REST</h3></header>
-                            <p>Toda la gestión de datos se realiza mediante peticion  <strong>fetch()</strong> asíncronas a la base de datos de Firebase Realtime Database.</p>
+                            <header><h3>Cuidados</h3></header>
+                            <p>Colaboramos activamente con entidades gubernamentales y privadas para la rehabilitación y, cuando es posible, la reintroducción de especies nativas rescatadas del peligro o del tráfico ilegal.</p>
                         </section>
                     </div>
                     
                     <div class="col-4 col-12-narrow">
                         <section>
-                            <header><h3>Diseño Responsivo</h3></header>
-                            <p>Uso de Flexbox y Media Queries en <strong>diseño.css</strong> para garantizar la correcta visualización en dispositivos móviles y de escritorio.</p>
+                            <header><h3>Innovación biotecnológica</h3></header>
+                            <p>Utilizamos sistemas de registro biométrico y una integración API REST que permite a nuestros veterinarios y cuidadores acceder a datos de salud en tiempo real, garantizando un cuidado predictivo e inmediato.</p>
                         </section>
                     </div>
                     
                     <div class="col-4 col-12-narrow">
                         <section>
-                            <header><h3>Estructura Semántica</h3></header>
-                            <p>Implementación correcta de etiquetas HTML5 estructurales como aprendimos durante el curso.</p>
+                            <header><h3>Educación y concientización</h3></header>
+                            <p>Creemos que la conservación comienza con el conocimiento. Nuestro objetivo es que cada visitante, desde niños hasta adultos, comprenda el valor de la biodiversidad y el papel que puede jugar en su protección.</p>
                         </section>
                     </div>
                 </div>
@@ -68,15 +90,15 @@
     <section id="registro" class="main">
         <header>
             <div class="container">
-                <h1>Registrar Animal (CREATE)</h1>
-                <p>Complete los datos para enviar un nuevo registro (POST) a la colección `/animales`.</p>
+                <h1>Registrar animal</h1>
+                <p>Por favor complete los datos del nuevo animal:</p>
             </div>
         </header>
         
         <div class="content dark style2"> 
             <div class="container medium">
                 <form id="formulario-animales" method="post" action="#">
-                    <!-- Es el elemento clave. Contiene todos los campos que se enviarán a la base de datos.-->
+                    <!--Contiene todos los campos que se enviarán a la base de datos.-->
                     <div class="row gtr-50">
                         <div class="col-6 col-12-narrow">
                             <label for="nombre">Nombre del Animal:</label>
@@ -108,7 +130,7 @@
                         
                         <div class="col-12">
                             <ul class="actions special">
-                                <li><input type="submit" class="button" id="btn-registrar" value="Registrar Animal (POST)" /></li>
+                                <li><input type="submit" class="button" id="btn-registrar" value="Registrar Animal" /></li>
                                 <li><input type="reset" class="button alt" value="Limpiar Formulario" /></li>
                             </ul>
                         </div>
@@ -121,31 +143,29 @@
     <section id="listado-animales" class="main">
          <header>
             <div class="container">
-                <h1> Inventario de Fauna (READ)</h1>
-                <p>Lista de animales. Use esta sección para buscar, actualizar (PATCH) o eliminar (DELETE) registros.</p>
-                <!-- Esta es la sección de la operación READ (GET), UPDATE (PATCH) y DELETE. Aquí es donde se visualizarán todos los animales registrados.-->
-                 <!-- la tabla se hace con app.js-->
+                <h1>Fauna de Zootilines</h1>
+                <p>Use esta sección para buscar, actualizar o eliminar registros.</p>
+
             </div>
         </header>
         
         <div class="content style3 dark"> 
             <div class="container">
                 <div id="lista-animales" class="row">
-                    <p class="col-12">Cargando datos del inventario... (Miembro 3)</p>
+                    <p class="col-12">Cargando datos del inventario...</p>
                 </div>
             </div>
-        </div>
+        </div>   
     </section>
+
 
 
     <section id="dashboard" class="main">
         <header>
             <div class="container">
                 <h1> Dashboard de Métricas</h1>
-                <p>Análisis en tiempo real de la base de datos (conteo de animales, estado de salud).</p>
-                <!-- Requisito de Lectura, Implica procesar esos datos. El Dashboard demuestra que tu código JavaScript no solo sabe leer el inventario completo, sino que también sabe analizarlo y resumirlo.-->
-            <!-- Total de Animales (#total-animales)Contar el número total de objetos recibidos de Firebase.Iterar sobre los datos y calcular un total.Animales Críticos (#animales-criticos)Filtrar los animales donde estado_salud sea $\le 3$.Aplicar lógica condicional (if, filter) sobre el conjunto de datos. -->
-            </div>
+                <p>Análisis en tiempo real.</p>
+                
 
         </header>
         
