@@ -1,9 +1,7 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,400italic");
 
-/*
- * CSS Base y Reseteo
- */
+
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
     margin: 0;
@@ -34,10 +32,11 @@ input, select, textarea {
     appearance: none;
 }
 
-/* Tipografía y Estilos Básicos */
+/* Tipografía y Estilos Basicos */
 
     html {
         box-sizing: border-box;
+        scroll-behavior: smooth;
     }
 
     *, *:before, *:after {
@@ -45,7 +44,7 @@ input, select, textarea {
     }
 
     body {
-        background: #F8F8F8;
+        background: #ffffff;
         font-family: 'Roboto', sans-serif;
         font-weight: 300; 
         font-size: 17pt;
@@ -55,27 +54,27 @@ input, select, textarea {
     }
 
     strong, b {
-    font-weight: 700;
-}
-
+        font-weight: 700;
+    }
 
     .dark {
         color: rgba(255, 255, 255, 0.65);
     }
 
-h1, h2, h3, h4, h5, h6 {
-    color: #04db04;
-    margin: 0 0 1em 0;
-    font-weight: 300; 
-    line-height: 1.5em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
-}
-
-    .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
-        color: #fff;
+    h1, h2, h3, h4, h5, h6 {
+        color: #04db04;
+        margin: 0 0 1em 0;
+        font-weight: 300; 
+        line-height: 1.5em;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
     }
+
+        .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+            color: #fff;
+        }
     
     a {
+        /* Mantenemos la transición de color/borde para un hover suave */
         -moz-transition: border-bottom-color 0.25s ease-in-out;
         -webkit-transition: border-bottom-color 0.25s ease-in-out;
         -ms-transition: border-bottom-color 0.25s ease-in-out;
@@ -145,13 +144,6 @@ h1, h2, h3, h4, h5, h6 {
         .row > .col-6 { width: 50%; }
         .row > .col-12 { width: 100%; }
 
-        /* Columnas Móvil (Responsivo) */
-        @media screen and (max-width: 736px) { 
-            .row > .col-12-narrow { width: 100%; } 
-            .row > .col-6-narrow { width: 100%; }
-            .row > .col-4-narrow { width: 100%; }
-        }
-        
         /* Gutter Específico */
         .row.gtr-50 { margin-top: -25px; margin-left: -25px; } 
             .row.gtr-50 > * { padding: 25px 0 0 25px; }
@@ -180,6 +172,23 @@ h1, h2, h3, h4, h5, h6 {
         margin: 0 0 0.5em 0;
     }
 
+    /* Estilos específicos para el formulario de registro (para que resalte sobre el fondo) */
+    #registro input[type="text"], 
+    #registro input[type="number"], 
+    #registro select {
+        background: #fff; /* Fondo blanco */
+        color: #333; /* Texto oscuro para el campo principal */
+    }
+
+    #registro label {
+        color: #fff; 
+    }
+
+    #registro select option {
+        background: #fff; 
+        color: #333;
+    }
+
     .select {
         position: relative;
     }
@@ -196,6 +205,8 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     .button {
+        /* Añadimos transición para que el hover del botón sea suave */
+        transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
         background: #3c93d5;
         border-radius: 4px;
         border: none;
@@ -236,6 +247,11 @@ h1, h2, h3, h4, h5, h6 {
         margin: 0;
         padding: 0;
     }
+    
+        ul.actions.special {
+            justify-content: center; /* Centrar acciones especiales como los botones de navegación */
+            margin-top: 2em;
+        }
 
         ul.actions li {
             padding: 0 0 0 1em;
@@ -306,20 +322,24 @@ h1, h2, h3, h4, h5, h6 {
             z-index: 1;
         }
 
-      #header h1 {
-    font-size: 4.5em; 
-    font-weight: 100;
-    line-height: 1em; 
-    margin-bottom: 0.25em; 
-}
+        #header h1 {
+            font-size: 4.5em; 
+            font-weight: 100;
+            line-height: 1em; 
+            margin-bottom: 0.25em; 
+            
+            /* Animación de entrada: Inicia oculto y fuera de pantalla */
+            opacity: 0; 
+            transform: translateY(-50px); 
+            animation: slideInFromTop 1s ease-out 0.5s forwards; 
+        }
 
-
-#header p {
-    font-size: 1.2em;
-    font-weight: 400; 
-    color: rgba(255, 255, 255, 0.9); 
-    margin-bottom: 3em; 
-}
+        #header p {
+            font-size: 1.2em;
+            font-weight: 400; 
+            color: rgba(255, 255, 255, 0.9); 
+            margin-bottom: 3em; 
+        }
         
         #nav-principal ul {
             display: flex;
@@ -332,8 +352,6 @@ h1, h2, h3, h4, h5, h6 {
         }
 
 
-        
-
 /* Dashboard de Métricas */
 
 #dashboard .metrica-card article {
@@ -342,6 +360,14 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 2em;
+    
+    /* Transición para el hover */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#dashboard .metrica-card article:hover {
+    transform: translateY(-5px); /* Efecto de elevación */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más fuerte */
 }
 
 #dashboard h3 {
@@ -397,7 +423,14 @@ h1, h2, h3, h4, h5, h6 {
 
 #listado-animales .accion-col {
     text-align: center;
-    width: 15%;
+    width: 25%; /* Ajustado para 2 botones */
+}
+
+/* Estilo para resaltar la salud crítica */
+#listado-animales .estado-critico {
+    background-color: #cc0000; /* Fondo rojo oscuro */
+    color: #fff; /* Texto blanco */
+    font-weight: 700;
 }
 
 #listado-animales .boton-eliminar {
@@ -407,7 +440,8 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 4px;
     font-size: 0.7em;
     font-weight: 400;
-    cursor: pointer; /* Añadido para mejor usabilidad */
+    cursor: pointer;
+    margin-left: 0.5em; /* Espacio entre botones */
 }
 
 #listado-animales .boton-eliminar:hover {
@@ -427,20 +461,117 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-#registro input[type="text"], 
-#registro input[type="number"], 
-#registro select {
-    background: #fff; /* Fondo blanco */
-    color: #333; /* Texto oscuro para el campo principal */
+/* ========================================================== */
+/* 🔑 MEDIA QUERY: AJUSTES PARA DISPOSITIVOS MÓVILES (MÁX. 736px) */
+/* ========================================================== */
+
+@media screen and (max-width: 736px) { 
+    
+    /* 1. Resetear el tamaño de la tipografía base para móvil */
+    body {
+        font-size: 14pt; 
+    }
+
+    /* 2. Reducir el padding de las secciones */
+    section {
+        padding: 4em 0; 
+    }
+
+    /* 3. Colapsar todas las columnas al 100% */
+    .row > .col-12-narrow, 
+    .row > .col-6-narrow,
+    .row > .col-4-narrow,
+    /* Aplicar a todas las columnas usadas */
+    .row > .col-4, 
+    .row > .col-6, 
+    .row > .col-12 { 
+        width: 100% !important; 
+    }
+    
+    /* 4. Reducir el espaciado (Gutter) entre filas y columnas */
+    .row { 
+        margin-top: -15px;
+        margin-left: -15px; 
+    }
+    .row > * { 
+        padding: 15px 0 0 15px; 
+    }
+    
+    /* 5. Ajustar el header principal */
+    #header {
+        padding: 4em 0; 
+    }
+    #header h1 {
+        font-size: 3em; 
+    }
+
+    /* 6. Ajustar la navegación */
+    #nav-principal ul {
+        flex-direction: column; 
+    }
+    #nav-principal li {
+        padding: 0.5em 0; 
+    }
+
+    /* 7. Ajustar la tabla (para evitar desbordes) */
+    #listado-animales .content {
+        overflow-x: auto; /* Permite scroll horizontal */
+    }
+    #listado-animales table {
+        min-width: 650px; /* Asegura que la tabla no se rompa */
+        display: block; /* Para permitir el scroll horizontal */
+    }
+    #listado-animales .accion-col {
+        min-width: 150px; /* Asegura que haya espacio para los dos botones */
+        width: auto;
+    }
+    
+    /* Ajustar los botones de acción para que se apilen si es necesario */
+    #listado-animales .boton-actualizar, 
+    #listado-animales .boton-eliminar {
+        display: block;
+        margin: 0.25em auto;
+    }
+    
+    /* Ajustar acciones especiales (botones de navegación entre secciones) */
+    ul.actions.special {
+        flex-direction: column;
+    }
+    ul.actions.special li {
+        padding: 0.5em 0;
+    }
 }
 
+/* ========================================================== */
+/* 🆕 DEFINICIÓN DE ANIMACIONES CSS (KEYFRAMES) */
+/* ========================================================== */
 
-#registro label {
-    color: #fff; 
+/* 1. Animación: Deslizar el título desde arriba (Header) */
+@keyframes slideInFromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
+/* 2. Animación Opcional: Pulso en el botón de registro (para llamar a la acción) */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(60, 147, 213, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(60, 147, 213, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(60, 147, 213, 0);
+    }
+}
 
-#registro select option {
-    background: #fff; 
-    color: #333;
+/* Aplicar la animación opcional al botón principal de registro */
+#registro input[type="submit"] {
+    animation: pulse 2s infinite;
 }
