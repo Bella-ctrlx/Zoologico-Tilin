@@ -427,7 +427,7 @@ input, select, textarea {
 }
 
 /* Estilo para resaltar la salud crítica */
-#listado-animales .estado-critico {
+#listado-animales .text-critico {
     background-color: #cc0000; /* Fondo rojo oscuro */
     color: #fff; /* Texto blanco */
     font-weight: 700;
@@ -461,9 +461,9 @@ input, select, textarea {
 }
 
 
-/* ========================================================== */
-/* 🔑 MEDIA QUERY: AJUSTES PARA DISPOSITIVOS MÓVILES (MÁX. 736px) */
-/* ========================================================== */
+
+/* MEDIA QUERY: AJUSTES PARA DISPOSITIVOS MÓVILES (MÁX. 736px) */
+
 
 @media screen and (max-width: 736px) { 
     
