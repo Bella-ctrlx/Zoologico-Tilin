@@ -265,6 +265,7 @@ input, select, textarea {
 
     section {
         padding: 6em 0;
+         scroll-margin-top: 90px;
     }
 
         section.main {
@@ -297,6 +298,7 @@ input, select, textarea {
     #header {
         position: relative;
         padding: 6em 0;
+        padding-top: 9em;
         background: #004d15 url("img/Zoo.jpeg") no-repeat center center; 
         background-size: cover;
         color: #fff;
@@ -350,6 +352,19 @@ input, select, textarea {
         #nav-principal li {
             padding: 0 1em;
         }
+
+        
+/* Nav-principal fijo (fixed) para que el usuario siempre lo vea */
+
+#nav-principal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 77, 21, 0.95);
+    padding: 1em 0;
+    z-index: 1000;
+}
 
 
 /* Dashboard de Métricas */
